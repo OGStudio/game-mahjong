@@ -5,3 +5,8 @@ img.resize
     max-height: 50%;
 }
 
+table
+{
+    border: 1px;
+}
+
