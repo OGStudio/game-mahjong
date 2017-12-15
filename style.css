@@ -5,8 +5,9 @@ img.resize
     max-height: 50%;
 }
 
-table
+table, th, td
 {
     border-style: solid;
+    border-width: 1px;
 }
 
