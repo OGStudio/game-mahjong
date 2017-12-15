@@ -5,9 +5,9 @@ img.resize
     max-height: 240;
 }
 
-table, th, td
+tr
 {
-    border-style: solid;
+    border-bottom-style: solid;
     border-width: 1px;
 }
 
