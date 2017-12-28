@@ -67,4 +67,5 @@ for version in versions:
     )
 
 with open(INDEX_FILE_NAME, "w") as f:
-    f.write(contents)
+    fileContents = INDEX_TEMPLATE.format(items = contents)
+    f.write(fileContents)
