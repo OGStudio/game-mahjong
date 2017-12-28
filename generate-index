@@ -1,0 +1,70 @@
+#!/usr/bin/python
+
+import os
+
+DESCRIPTION_FILE_NAME = "description.html"
+INDEX_FILE_NAME = "index.html"
+INDEX_TEMPLATE = """
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<html>
+    <title>OGS Mahjong web releases</title>
+    <body>
+        <h1>OGS Mahjong web releases</h1>
+        <p>Source code repository is <a href="https://bitbucket.org/ogstudio-games/mahjong">here</a></p>
+        <p><strong>Note</strong>: click on image to run concrete version</p>
+        <table>
+            <tr>
+                <th>Screenshot</th>
+                <th>Version</th>
+                <th>Date</th>
+                <th>Topic</th>
+                <th>Description</th>
+            </tr>
+
+{items}
+
+        </table>
+    </body>
+</html>
+"""
+ITEM_TEMPLATE = """
+<!-- {id} -->
+<tr>
+    <td>
+        <a href="versions/{id}/mjin-player.html">
+            <img class="resize" src="versions/{id}/shot.png">
+        </a>
+    </td>
+    <td>{id}</td>
+    <td>{date}</td>
+    <td>{brief}</td>
+    <td>{long}</td>
+</tr>
+"""
+VERSIONS_DIR = "versions"
+
+def description(fileName):
+    lines = []
+    with open(fileName, "r") as f:
+        lines = f.readlines()
+    return lines
+
+versions = sorted(os.listdir(VERSIONS_DIR))
+contents = ""
+for version in versions:
+    print("Processing version '{0}'".format(version))
+    # Read description.
+    fileName = "versions/{0}/description.html".format(version)
+    desc = description(fileName)
+    # Compose item.
+    contents += ITEM_TEMPLATE.format(
+        id = version,
+        date = desc[0],
+        brief = desc[1],
+        long = desc[2]
+    )
+
+with open(INDEX_FILE_NAME, "w") as f:
+    f.write(contents)
