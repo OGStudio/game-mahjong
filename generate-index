@@ -9,9 +9,9 @@ INDEX_TEMPLATE = """
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <html>
-    <title>OGS Mahjong web releases</title>
+    <title>OGS Mahjong 2 web releases</title>
     <body>
-        <h1>OGS Mahjong web releases</h1>
+        <h1>OGS Mahjong 2 web releases</h1>
         <p>Source code repository is <a href="https://bitbucket.org/ogstudio-games/mahjong">here</a></p>
         <p><strong>Note</strong>: click on image to run concrete version</p>
         <table>
